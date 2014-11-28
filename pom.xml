@@ -84,7 +84,7 @@
                         <echo>Copying getdown.txt to target directory</echo>
                         <copy file="FSL-CloudFileScanner/resources/getdown.txt" tofile="${basedir}/target/getdown.txt"/>
                         <echo>Copying FSL-CloudFileScanner.ini to target directory</echo>
-                        <copy file="FSL-CloudFileScanner/resources/FSL-CloudFileScanner.ini" tofile="${basedir}/target/FSL-CloudFileScanner.ini"/>
+                        <copy file="FSL-CloudFileScanner/resources/FSL-CloudFileScanner.ini" tofile="${user.dir}/app/FSL-CloudFileScanner.ini"/>
                         <echo>Copying instructions.txt to target directory</echo>
                         <copy file="FSL-CloudFileScanner/resources/instructions.txt" tofile="${basedir}/target/instructions.txt"/>
                         <echo>Copying FSL-CloudFileScanner.settings to target directory</echo>

@@ -27,7 +27,8 @@ import java.util.*;
 public class TermCast {
     public void main(String args[])
     {
-        new gpl20.GPL20("----");    
+        new gpl20.GPL20("----");  
+        
         Properties properties = new Properties();
         try
         {
