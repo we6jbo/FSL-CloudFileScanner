@@ -1,0 +1,5 @@
+Instructions for building and preparing the getdown updater (mostly to help me, Jeremiah, prepare the update system).
+
+First: You'll see jar files. The one labled We6jboisFreeSL-XX.XX.XX-jar-with-dependencies.jar (where XX is numbers) is the jar file that will contain the dependencies.
+
+Add more to the instructions.txt file.
