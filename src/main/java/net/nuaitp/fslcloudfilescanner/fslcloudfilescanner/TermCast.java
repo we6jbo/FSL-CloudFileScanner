@@ -19,37 +19,44 @@ package net.nuaitp.fslcloudfilescanner.fslcloudfilescanner;
 
 import java.io.*;
 import java.util.*;
+import org.jibble.pircbot.*;
 
 /**
  *
  * @author Jeremiah ONeal <joneal@nuaitp.net>
  */
-public class TermCast {
+public class TermCast extends PircBot {
     public void main(String args[])
     {
         new gpl20.GPL20("----");  
         
+        // Check to see if the properties file exists. If not, create it.
+        File chkfpropfle = new File("FSL-CloudFileScanner.ini");
+        if (chkfpropfle.exists() && !chkfpropfle.isDirectory())
+        {}else
+        {}
         Properties properties = new Properties();
         try
         {
-            properties.load(new FileInputStream("FSL-CloudFileScanner.ini"));
+            InputStream file = ClassLoader.getSystemResourceAsStream("FSL-CloudFileScanner.ini");
+            properties.load(file);
         }
         catch(IOException e)
         {
             say.Say.debug("----", e.toString());
         }
-        new filemanager.Filemanager("termcast");
-        new data.Data("termcast");
-        new controller.Controller("---", "we6jbo.synchro.net", 25);
+         String tst;
+        tst = properties.getProperty("name","Durr");
+        say.Say.debug("----",tst);
+//        new filemanager.Filemanager("termcast");
+//        new data.Data("termcast");
+//        new controller.Controller("---", "online.fanciful.org", 25);
         new shutdown.Shutdown();
         try
         {
-            ircservice.Ircservice ircserv = new ircservice.Ircservice();
-            ircserv.setVerbose(false);
-            ircserv.connect("irc.starlink-irc.org");
-            ircserv.joinChannel("#family_tree");
-            ircserv.SendMessage("Test.");
-            new receiver.Receiver("----");
+          	//new GUI.GUI("----");
+          	GUI.GUI gui = new GUI.GUI("----");
+//            new receiver.Receiver("----");
             //BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             //ircserv.SendMessage(br.readLine().toString());
         }
@@ -65,5 +72,5 @@ public class TermCast {
         {
             say.Say.debug("----", e.toString());
         } 
-    }   
+    }
 }
