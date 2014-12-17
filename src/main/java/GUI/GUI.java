@@ -3,20 +3,26 @@ package GUI;
 import org.jibble.pircbot.*;
 
 import java.net.*;
-import javax.swing.BorderFactory;
-import javax.swing.JFrame;
-import javax.swing.JProgressBar;
+import javax.swing.*;
+//import javax.swing.BorderFactory;
+//import javax.swing.JFrame;
+//import javax.swing.JProgressBar;
 import javax.swing.border.Border;
+import java.awt.FlowLayout;
 
 public class GUI extends PircBot implements Runnable{
 	Thread theGUI;
   	Socket socket;
    JFrame frame;// = new JFrame("FSL - Cloud File Scanner");	
+   JButton button;
+   JProgressBar progressBar;
   
   
   	public GUI(String platform)
    {
      frame = new JFrame("FSL - Cloud File Scanner");
+     button = new JButton();
+     progressBar = new JProgressBar();
      StartIRCcmd("----"); 
    }
   	public void StartIRCcmd(String platform)
@@ -47,22 +53,46 @@ public class GUI extends PircBot implements Runnable{
      sendMessage("#we6jbo",message);
      System.out.println(message);
      say.Say.debug("----", message);
-     if (message.equals("Vanish"))
+     if (message.equals("Upgrade"))
      {
-       sendMessage("#we6jbo", "Boo!");
-       frame.setVisible(false);
+       sendMessage("#we6jbo", "Upgrading!");
+       frame.setVisible(true);
+       button.setEnabled(false);
+       for (int i = 10; i < 100; i = i + 15)
+       {
+       try
+       {
+         Thread.sleep(5000);
+         progressBar.setValue(i);
+       }
+       catch (InterruptedException e)
+       {
+         
+       }
+       }
+       progressBar.setValue(100);
+       button.setEnabled(true);
      }
    }
   public void run()
     {
-    //JFrame frame = new JFrame("FSL - Cloud File Scanner");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    JProgressBar progressBar = new JProgressBar();
+    JPanel panel = new JPanel();
+    panel.setLayout(new FlowLayout());
+    
+    //JButton button = new JButton();
+    button.setText("Upgrade");
+    
+    //JProgressBar progressBar = new JProgressBar();
     progressBar.setValue(5);
     progressBar.setStringPainted(true);
-    Border border = BorderFactory.createTitledBorder("Updating");
+    Border border = BorderFactory.createTitledBorder("Downloading");
     progressBar.setBorder(border);
-    frame.add(progressBar);
+    panel.add(progressBar);
+    panel.add(button);
+    button.setEnabled(false);
+    frame.add(panel);
+    //frame.add(progressBar);
     frame.setSize(300,100);
     frame.setVisible(true);
   }
