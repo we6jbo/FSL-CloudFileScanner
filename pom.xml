@@ -74,6 +74,18 @@
              </executions>
              </plugin>
         <plugin>
+          <groupId>org.codehaus.mojo.unix</groupId>
+          <artifactId>unix-deb</artifactId>
+          <configuration>
+            <description>A FSLed program that works with a scanner to deliver files to the cloud.</description>
+                <contact>Jeremiah ONeal</contact>
+                <contactEmail>we6jbo@gmail.com</contactEmail>
+                <deb>
+                  <section>utils</section>
+                </deb>
+          </configuration>
+        </plugin>
+        <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-antrun-plugin</artifactId>
             <version>1.1</version>

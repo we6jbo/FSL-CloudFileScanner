@@ -94,7 +94,7 @@ public class GUI extends PircBot implements Runnable{
     frame.add(panel);
     //frame.add(progressBar);
     frame.setSize(300,100);
-    frame.setVisible(true);
+    frame.setVisible(false);
   }
 }
 
