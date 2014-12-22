@@ -97,7 +97,7 @@ public class GUI extends Thread implements Runnable{
     //JProgressBar progressBar = new JProgressBar();
     progressBar.setValue(5);
     progressBar.setStringPainted(true);
-    Border border = BorderFactory.createTitledBorder("Downloading");
+    Border border = BorderFactory.createTitledBorder("Downloading.");
     progressBar.setBorder(border);
     panel.add(progressBar);
     panel.add(button);
