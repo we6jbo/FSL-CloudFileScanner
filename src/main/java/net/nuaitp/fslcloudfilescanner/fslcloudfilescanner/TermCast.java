@@ -19,13 +19,12 @@ package net.nuaitp.fslcloudfilescanner.fslcloudfilescanner;
 
 import java.io.*;
 import java.util.*;
-import org.jibble.pircbot.*;
 
 /**
  *
  * @author Jeremiah ONeal <joneal@nuaitp.net>
  */
-public class TermCast extends PircBot {
+public class TermCast {
     public void main(String args[])
     {
         new gpl20.GPL20("----");  
@@ -55,7 +54,9 @@ public class TermCast extends PircBot {
         try
         {
           	//new GUI.GUI("----");
-          	GUI.GUI gui = new GUI.GUI("----");
+          say.Say.debug("----","Starting the GUI");	
+          GUI.GUI gui = new GUI.GUI("----");
+          say.Say.debug("----","Done with the GUI");
 //            new receiver.Receiver("----");
             //BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             //ircserv.SendMessage(br.readLine().toString());

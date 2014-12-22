@@ -23,10 +23,10 @@
         <scope>test</scope>
     </dependency>
     <dependency>
-	<groupId>pircbot</groupId>
-	<artifactId>pircbot</artifactId>
-	<version>1.5.0</version>
-    </dependency>        
+     <groupId>org.schwering</groupId>
+      <artifactId>irclib</artifactId>
+      <version>1.10</version>
+    </dependency>
 </dependencies>
 <build>
 <sourceDirectory>src/main/java</sourceDirectory>
@@ -56,7 +56,7 @@
                  </archive>
                </configuration>
        </plugin>
-        <plugin>
+      <plugin>
                  <groupId>org.apache.maven.plugins</groupId>
                  <artifactId>maven-assembly-plugin</artifactId>
              <executions>
@@ -74,18 +74,6 @@
              </executions>
              </plugin>
         <plugin>
-          <groupId>org.codehaus.mojo.unix</groupId>
-          <artifactId>unix-deb</artifactId>
-          <configuration>
-            <description>A FSLed program that works with a scanner to deliver files to the cloud.</description>
-                <contact>Jeremiah ONeal</contact>
-                <contactEmail>we6jbo@gmail.com</contactEmail>
-                <deb>
-                  <section>utils</section>
-                </deb>
-          </configuration>
-        </plugin>
-        <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-antrun-plugin</artifactId>
             <version>1.1</version>
@@ -97,17 +85,17 @@
                 </goals>
                 <configuration>
                     <tasks>
-                       <!-- <echo>Copying getdown.txt to target directory</echo>
-                        <copy file="FSL-CloudFileScanner/resources/getdown.txt" tofile="${basedir}/target/getdown.txt"/>
+                      <!-- <echo>Copying getdown.txt to target directory</echo>
+                        <copy file="src/main/resources/getdown.txt" tofile="${basedir}/target/getdown.txt"/>
                         <echo>Copying FSL-CloudFileScanner.ini to target directory</echo>
-                        <copy file="FSL-CloudFileScanner/resources/FSL-CloudFileScanner.ini" tofile="${user.dir}/app/FSL-CloudFileScanner.ini"/>
+                        <copy file="src/main/resources/FSL-CloudFileScanner.ini" tofile="${user.dir}/app/FSL-CloudFileScanner.ini"/>
                         <echo>Copying instructions.txt to target directory</echo>
-                        <copy file="FSL-CloudFileScanner/resources/instructions.txt" tofile="${basedir}/target/instructions.txt"/>
+                        <copy file="src/main/resources/instructions.txt" tofile="${basedir}/target/instructions.txt"/>
                         <echo>Copying FSL-CloudFileScanner.settings to target directory</echo>
-                        <copy file="FSL-CloudFileScanner/resources/FSL-CloudFileScanner.settings" tofile="${basedir}/target/FSL-CloudFileScanner.settings"/>
+                        <copy file="src/main/resources/FSL-CloudFileScanner.settings" tofile="${basedir}/target/FSL-CloudFileScanner.settings"/>
                         <echo>Copying database.txt to target directory</echo>
-                        <copy file="FSL-CloudFileScanner/resources/database.txt" tofile="${basedir}/target/database.txt"/>
-                       -->
+                        <copy file="src/main/resources/database.txt" tofile="${basedir}/target/database.txt"/>
+                      -->
                     </tasks>
                 </configuration>
                 </execution>

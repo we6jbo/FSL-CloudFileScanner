@@ -21,19 +21,16 @@ package ircservice;
  *
  * @author Jeremiah ONeal <joneal@nuaitp.net>
  */
-import org.jibble.pircbot.*;
 import java.util.Random;
 
-public class Ircservice extends PircBot {
+public class Ircservice {
     public Ircservice ()
     {
-		Random random = new Random();
-      int rand = random.nextInt((9000 - 1000) +1 ) + 1000;
-      this.setName("fslcfs-" + rand);
+	//	Random random = new Random();
+   //   int rand = random.nextInt((9000 - 1000) +1 ) + 1000;
     }
-    public void SendMessage(String message)
+    public void noLongerUsed(String message)
     {
-        sendMessage("#we6jbo",message);
     }
 
 }

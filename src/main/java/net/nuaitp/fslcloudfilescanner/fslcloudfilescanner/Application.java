@@ -22,7 +22,8 @@ public class Application
 {
     public static void main( String[] args )
     {   
-        TermCast termcast = new TermCast();
+       System.out.println("Works 1 2 3");
+      TermCast termcast = new TermCast();
         termcast.main(args);
     }
 }

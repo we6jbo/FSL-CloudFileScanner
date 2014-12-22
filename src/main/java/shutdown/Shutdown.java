@@ -30,10 +30,10 @@ public class Shutdown {
     {
         Runtime.getRuntime().addShutdownHook(new Thread()
         {
-            ircservice.Ircservice ircserv = new ircservice.Ircservice();
+            
             public void run()
             {
-                ircserv.SendMessage("Shutdown hook.");
+                
                 say.Say.debug("----", "Running add shutdown hook");
             }
         });
