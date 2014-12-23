@@ -1,9 +1,9 @@
 package GUI;
 
-import org.schwering.irc.lib.*;
-import org.schwering.irc.lib.ssl.*;
+//import org.schwering.irc.lib.*;
+//import org.schwering.irc.lib.ssl.*;
 
-import org.schwering.irc.lib.IRCEventListener;
+//import org.schwering.irc.lib.IRCEventListener;
 
 import java.util.EventListener;
 
@@ -23,7 +23,7 @@ public class GUI extends Thread implements Runnable{
 	Thread theGUI;
   	Socket socket;
    
-   IRCConnection conn;
+//   IRCConnection conn;
    JFrame frame;// = new JFrame("FSL - Cloud File Scanner");	
    JButton button;
    JProgressBar progressBar;
@@ -40,23 +40,23 @@ public class GUI extends Thread implements Runnable{
    //{
 	  
                             //     Host         Port  Pass Nick User Name
-     try
-     {
-     conn = new IRCConnection("irc.mibbit.net",6667,6669,null,"we6jbo-9","Jeremiah ONeal","we6jbo@gmail.com");
+//     try
+  //   {
+//     conn = new IRCConnection("irc.mibbit.net",6667,6669,null,"we6jbo-9","Jeremiah ONeal","we6jbo@gmail.com");
      say.Say.debug("----","Doing the listening thing");
-     conn.addIRCEventListener(new Listener());
+//     conn.addIRCEventListener(new Listener());
        say.Say.debug("----","ok...");
-       conn.setEncoding("UTF-8");
-       conn.setDaemon(true);
-       conn.setColors(false);
-       conn.setPong(true);
+//       conn.setEncoding("UTF-8");
+//       conn.setDaemon(true);
+//       conn.setColors(false);
+//       conn.setPong(true);
       say.Say.debug("----","Ready for the connect");
-      conn.connect();
+//      conn.connect();
        say.Say.debug("----","Past it");
-     }catch (IOException e)
-       {
-       say.Say.debug("----", e.toString());
-     }
+//     }catch (IOException e)
+//       {
+ //      say.Say.debug("----", e.toString());
+//     }
      
      say.Say.debug("----","And then...on");
      //StartIRCcmds("----");
@@ -69,7 +69,7 @@ public class GUI extends Thread implements Runnable{
      //try
      //{
        //conn.connect();
-       conn.send("/join #we6jbo");
+//       conn.send("/join #we6jbo");
      //}
      //catch (IOException e)
      //{
@@ -105,10 +105,33 @@ public class GUI extends Thread implements Runnable{
     frame.add(panel);
     //frame.add(progressBar);
     frame.setSize(300,100);
-    frame.setVisible(true);
+    frame.setVisible(false);
   }
+/////////////
+public void UpgradeMe()
+  {
+  frame.setVisible(true);
+           button.setEnabled(false);
+           for (int i = 10; i < 100; i = i + 15)
+             {
+             try
+               {
+               Thread.sleep(5000);
+               progressBar.setValue(i);
+             }
+             catch (InterruptedException e)
+               {
+             }
+             progressBar.setValue(100);
+             button.setEnabled(true);
+             //Thread.sleep(5000);
+             frame.setVisible(false);
+            say.Say.debug("----","Done with that");
+           }
+}
 
-   public class Listener implements IRCEventListener {  
+//////////
+/*   public class Listener implements IRCEventListener {  
      public void onRegistered(){say.Say.debug("----","Connected");}
      public void onDisconnected(){say.Say.debug("----","Disconnected");}
      public void onError(String msg){say.Say.debug("----",msg);}
@@ -155,6 +178,6 @@ say.Say.debug("---","Upgrading...");
      public void onTopic(String chan, IRCUser u, String topic){say.Say.debug("----",chan + u.getNick() + topic);}
      public void onPing(String p){say.Say.debug("----",p);}
      public void unknown(String a, String b, String c, String d){say.Say.debug("----",a + b + c + d);}
-   }
+   }*/
 }
 

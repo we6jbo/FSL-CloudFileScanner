@@ -22,13 +22,6 @@
         <version>4.10</version>
         <scope>test</scope>
     </dependency>
-    <dependency>
-     <groupId>org.schwering</groupId>
-      <artifactId>irclib</artifactId>
-      <version>1.10</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/lib/irclib.jar</systemPath>
-    </dependency>
 </dependencies>
 <build>
 <sourceDirectory>src/main/java</sourceDirectory>

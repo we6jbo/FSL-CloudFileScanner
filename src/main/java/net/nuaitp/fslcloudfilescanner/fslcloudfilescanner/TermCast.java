@@ -50,12 +50,13 @@ public class TermCast {
 //        new filemanager.Filemanager("termcast");
 //        new data.Data("termcast");
 //        new controller.Controller("---", "online.fanciful.org", 25);
-        new shutdown.Shutdown();
+        new conn.Conn();
+//        new shutdown.Shutdown();
         try
         {
           	//new GUI.GUI("----");
           say.Say.debug("----","Starting the GUI");	
-          GUI.GUI gui = new GUI.GUI("----");
+//          GUI.GUI gui = new GUI.GUI("----");
           say.Say.debug("----","Done with the GUI");
 //            new receiver.Receiver("----");
             //BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
