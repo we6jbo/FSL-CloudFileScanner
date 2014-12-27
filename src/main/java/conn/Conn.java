@@ -2,6 +2,7 @@ package conn;
 
 import java.io.*;
 import java.net.*;
+import java.util.Random;
 
 public class Conn {
 
@@ -13,67 +14,66 @@ public class Conn {
   {
     try
       {
-     System.out.println("This actually does run.");
-
-      //GUI gui = new GUI();
-      GUI.GUI gui = new GUI.GUI("----");
-      
-      String server = "irc.mibbit.net";
-     String nick = "we6jbo-9";
-     String login = "we6jbo-9";
+       GUI.GUI gui = new GUI.GUI("----");
+       String server = "irc.mibbit.net";
+       Random random = new Random();
+       int rand = random.nextInt((90-10)+1)+10;
+       String nick = "we6jbo" + rand;
+       String login = "we6jbo" + rand;
     
-     channel = "#we6jbo";
+       channel = "#we6jbo";
      
-     Socket socket = new Socket(server, 6667);
-     writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-     reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+       Socket socket = new Socket(server, 6667);
+       writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+       reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
     
-    writer.write("NICK " + nick + "\r\n");
-    writer.write("USER " + login + " 8 * : Java IRC client\r\n");
-    writer.flush();
-      System.out.println("And it does get down to here");
-    
-    line = null;
-    while ((line = reader.readLine()) != null) {
-      System.out.println(line);
-      if (line.toLowerCase().startsWith("ping ")) {
-        System.out.println("POOOOONG!!!! IT G.");
-        writer.write("PONG " + line.substring(5) + "\r\n");
-        writer.flush();
-      }
-      if (line.indexOf("004") >= 0) {
-        //were logged in
-        break;
-      }
-      else if (line.indexOf("433") >= 0) {
-        System.out.println("Errr");
-        return;
-      }
-    }
+       writer.write("NICK " + nick + "\r\n");
+       writer.write("USER " + login + " 8 * : Java IRC client\r\n");
+       writer.flush();
+          
+       line = null;
+       while ((line = reader.readLine()) != null) 
+       {
+        if (line.toLowerCase().startsWith("ping ")) 
+        {
+         writer.write("PONG " + line.substring(5) + "\r\n");
+         writer.flush();
+        }
+        if (line.indexOf("004") >= 0) 
+        {
+         break;
+        }
+        else if (line.indexOf("433") >= 0) 
+        {
+         //System.out.println("Errr");
+         return;
+        }
+       }
     //joining
-    writer.write("JOIN " + channel + "\r\n");
-    writer.flush();
+      writer.write("JOIN " + channel + "\r\n");
+      writer.flush();
     
-    while ((line = reader.readLine()) != null) {
-      if (line.toLowerCase().startsWith("ping ")) {
+      while ((line = reader.readLine()) != null) {
+       if (line.toLowerCase().startsWith("ping ")) 
+       {
         writer.write("PONG " + line.substring(5) + "\r\n");
         writer.write("PRIVMSG #we6jbo :pinged!\r\n");
         writer.flush();
-      }
-      else if ((line.toLowerCase().endsWith("upgrade")))
-        {
+       }
+       else if ((line.toLowerCase().endsWith("upgrade")))
+       {
         gui.UpgradeMe();
+       }
+       else 
+       {
+       //do nothing...
+       }
       }
-      else {
-        System.out.println(line);
-      }
-    }
-    }
-    catch(Exception e)
+     }
+     catch(Exception e)
       {
-      System.out.println("Cras");
-    }
-  }
+      }
+   }
     public void startGetting(String platform)
       {
       try
